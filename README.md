@@ -118,10 +118,4 @@ Contribuições são o que tornam a comunidade de código aberto um lugar incrí
 
 ---
 
-## 📄 Licença
-
-Distribuído sob a Licença MIT. Veja `LICENSE` para mais informações.
-
----
-
-Desenvolvido com ❤️ por [Seu Nome Aqui].
+Desenvolvido com ❤️ por Thauanny da Cruz.
