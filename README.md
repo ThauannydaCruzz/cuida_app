@@ -1,6 +1,6 @@
 # CUIDA App 🩺💙
 
-![CUIDA Logo](assets/images/logo.png) **Consulta Unificada e Inteligente para Disponibilidade e Acesso**
+<img src="assets/images/logo.png" alt="Logo do CUIDA" width="300"/> **Consulta Unificada e Inteligente para Disponibilidade e Acesso**
 
 O **CUIDA** é um aplicativo mobile de gestão de estoque, desenvolvido em Flutter, focado em otimizar e modernizar o controle de medicamentos e insumos em unidades de saúde públicas. A plataforma é uma ferramenta para gestores e funcionários, garantindo eficiência, agilidade e precisão no gerenciamento do almoxarifado.
 
