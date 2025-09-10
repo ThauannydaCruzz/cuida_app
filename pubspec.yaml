@@ -1,0 +1,31 @@
+name: cuida_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_map: ^8.2.1
+  mobile_scanner: ^7.0.1
+  iconsax: ^0.0.8
+  animate_do: ^4.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+# A seção a seguir é específica para o Flutter.
+flutter:
+
+  # A linha a seguir garante que a fonte Material Icons seja incluída.
+  uses-material-design: true
+
+  # Declara a pasta de imagens para o logo.
+  assets:
+    - assets/images/
