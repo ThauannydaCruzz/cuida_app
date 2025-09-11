@@ -1,116 +1,116 @@
-# CUIDA - Back-end de Autenticação e Cadastro
+CUIDA - Back-end de Autenticação e Cadastro
+Este back-end serve como a API principal para o projeto CUIDA, gerenciando o cadastro e a autenticação tanto de funcionários quanto de cidadãos (pacientes). Ele foi desenvolvido para funcionar como um serviço independente que pode ser consumido por aplicações web ou mobile.
 
-Este é o back-end do módulo de autenticação e cadastro do projeto CUIDA. Ele foi desenvolvido para gerenciar o acesso de funcionários à plataforma de gestão, oferecendo endpoints seguros para registro e login.
+🚀 Tecnologias Utilizadas
+Node.js: Ambiente de execução JavaScript.
 
----
+Express: Framework web para construir a API.
 
-## 🚀 Tecnologias Utilizadas
+bcryptjs: Utilizado para criptografia segura de senhas.
 
-* **Node.js**: Ambiente de execução JavaScript.
-* **Express**: Framework web para construir a API.
-* **bcryptjs**: Biblioteca para criptografia segura de senhas.
-* **jsonwebtoken (JWT)**: Para gerar tokens de acesso e autenticar usuários.
-* **Nodemon**: Ferramenta para reinício automático do servidor durante o desenvolvimento.
+jsonwebtoken (JWT): Para gerar tokens de acesso e autenticar usuários.
 
-## 📁 Estrutura do Projeto
+Nodemon: Ferramenta para reinício automático do servidor em desenvolvimento.
 
-O código está organizado da seguinte forma para facilitar a manutenção e a integração:
-
-Sim, com certeza. Formatar como um README.md é a melhor maneira de documentar um projeto.
-
-Aqui está o texto que você pode copiar e colar diretamente em um novo arquivo chamado README.md na pasta backend.
-
-Markdown
-
-# CUIDA - Back-end de Autenticação e Cadastro
-
-Este é o back-end do módulo de autenticação e cadastro do projeto CUIDA. Ele foi desenvolvido para gerenciar o acesso de funcionários à plataforma de gestão, oferecendo endpoints seguros para registro e login.
-
----
-
-## 🚀 Tecnologias Utilizadas
-
-* **Node.js**: Ambiente de execução JavaScript.
-* **Express**: Framework web para construir a API.
-* **bcryptjs**: Biblioteca para criptografia segura de senhas.
-* **jsonwebtoken (JWT)**: Para gerar tokens de acesso e autenticar usuários.
-* **Nodemon**: Ferramenta para reinício automático do servidor durante o desenvolvimento.
-
-## 📁 Estrutura do Projeto
-
-O código está organizado da seguinte forma para facilitar a manutenção e a integração:
-
+📁 Estrutura do Projeto
+A estrutura de pastas está organizada para facilitar o entendimento e a modularidade do código.
 
 /backend
 ├─── src/
 │    ├─── controllers/
-│    │    └─── authController.js     # Contém a lógica principal das requisições.
+│    │    └─── authController.js     # Lógica para login e cadastro de funcionários.
+│    │    └─── publicController.js   # Lógica para login e cadastro de cidadãos.
 │    ├─── models/
-│    │    └─── User.js               # Define o modelo de usuário e a lógica de acesso aos dados.
+│    │    └─── funcionario.js        # Modelo de dados e funções para funcionários.
+│    │    └─── cidadao.js            # Modelo de dados e funções para cidadãos.
 │    ├─── routes/
-│    │    └─── authRoutes.js         # Define os endpoints da API (/cadastro, /login).
+│    │    └─── authRoutes.js         # Define os endpoints para autenticação de funcionários.
+│    │    └─── publicRoutes.js       # Define os endpoints para autenticação de cidadãos.
 │    ├─── db/
-│    │    └─── db.js                 # Simulação de um banco de dados em um arquivo JSON.
-│    │    └─── mock_db.json          # Arquivo de armazenamento de dados dos usuários (mock).
+│    │    └─── db.js                 # Lógica para simular o banco de dados.
+│    │    └─── mock_db.json          # Arquivo de armazenamento dos dados (simulação).
 │    └─── server.js                 # Ponto de entrada da aplicação.
-├─── .env                          # Variáveis de ambiente (PORTA, segredo JWT).
-├─── package.json                  # Lista de dependências e scripts do projeto.
+├─── .env                          # Variáveis de ambiente.
+├─── package.json                  # Dependências e scripts do projeto.
 
 
-## ⚙️ Como Executar o Back-end
+⚙️ Como Executar o Back-end
+Para colocar o back-end para rodar localmente:
 
-1.  **Instale as dependências:**
-    ```sh
-    npm install
-    ```
+Abra o terminal na pasta backend.
 
-2.  **Inicie o servidor de desenvolvimento:**
-    ```sh
-    npm run dev
-    ```
-    O servidor será iniciado na porta `3001` e reiniciará automaticamente a cada alteração nos arquivos.
+Instale as dependências do projeto com o comando:
 
-## 🎯 Endpoints da API
+npm install
 
-A API expõe dois endpoints principais para autenticação:
+Inicie o servidor em modo de desenvolvimento:
 
-### 1. `POST /api/auth/cadastro`
+npm run dev
 
-* **Descrição**: Registra um novo funcionário no sistema.
-* **Corpo da Requisição (JSON):**
-    ```json
-    {
-      "nome": "string",
-      "email": "string",
-      "password": "string"
-    }
-    ```
-* **Respostas**:
-    * `201 Created`: Sucesso no cadastro.
-    * `400 Bad Request`: Campos obrigatórios ausentes.
-    * `409 Conflict`: E-mail já cadastrado.
+servidor estará rodando na porta 3001 e pronto para receber requisições.
 
-### 2. `POST /api/auth/login`
 
-* **Descrição**: Autentica um funcionário existente.
-* **Corpo da Requisição (JSON):**
-    ```json
-    {
-      "email": "string",
-      "password": "string"
-    }
-    ```
-* **Respostas**:
-    * `200 OK`: Login bem-sucedido. O corpo da resposta inclui um token JWT.
-    * `400 Bad Request`: E-mail ou senha incorretos.
+🎯 Endpoints da API
+A API oferece os seguintes endpoints para as aplicações web e mobile:
 
-### 🔑 Autenticação (JWT)
+1. Para Funcionários:
+POST /api/auth/cadastro
 
-Após um cadastro ou login bem-sucedido, o back-end retorna um **JSON Web Token (JWT)**. Este token é a chave para acessar rotas protegidas. O front-end deve armazená-lo e enviá-lo no cabeçalho `Authorization` de futuras requisições para rotas que exigem autenticação.
+Descrição: Registra um novo funcionário ou gestor.
 
-Formato do cabeçalho de autenticação:
-`Authorization: Bearer <seu_token_jwt_aqui>`
+Corpo da Requisição (JSON):
 
----
+{
+  "nome": "string",
+  "email": "string",
+  "password": "string",
+  "matricula": "string",
+  "departamento": "string",
+  "cargo": "string"
+}
 
-Este back-end pode ser testado de forma independente com ferramentas como `cURL`, Postman ou Insomnia antes da integração com o front-end.
+POST /api/auth/login
+
+Descrição: Autentica um funcionário.
+
+Corpo da Requisição (JSON):
+
+{
+  "email": "string",
+  "password": "string"
+}
+
+. Para Cidadãos (Pacientes):
+POST /api/publico/cadastro-cidadao
+
+Descrição: Registra um novo cidadão (paciente).
+
+Corpo da Requisição (JSON):
+
+{
+  "nome": "string",
+  "idade": "number",
+  "endereco": "string",
+  "cpf": "string",
+  "rg": "string",
+  "email": "string",
+  "telefone": "string",
+  "carteirinha": "string",
+  "tipoSanguineo": "string",
+  "medicamentosRestritos": "string",
+  "diagnosticos": "string",
+  "password": "string"
+}
+
+POST /api/publico/login-cidadao
+
+Descrição: Autentica um cidadão (paciente).
+
+Corpo da Requisição (JSON):
+
+{
+  "email": "string",
+  "password": "string"
+}
+
+As rotas de autenticação retornam um token JWT em caso de sucesso, que deve ser usado para acessar rotas protegidas.
